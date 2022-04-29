@@ -42,19 +42,6 @@ const trackingOptions = {
 TiktokPixel.track(event, data, trackingOptions);
 ```
 
-if you're bundling in CI
-
-```js
-  ...
-  componentDidMount() {
-    const TiktokPixel =  require('tiktok-pixel');
-    TiktokPixel.default.init('yourPixelIdGoesHere');
-  }
-  ...
-```
-
-otherwise CI will complain there's no `window`.
-
 ## Dev Server
 
 ```bash
