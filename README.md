@@ -89,8 +89,8 @@ yarn start
 | description            | Description of the item or page.                                                                                                                                                                                                                                                                                                                                                | string                                                                                                                                             |
 | status                 | Status of an order, item, or service. Note: Depending on your use of 'status', Events API may be required in order to share status changes to TikTok.                                                                                                                                                                                                                           | string                                                                                                                                             |
 
-### Follow me on LinkedIn: [@ertemishakk](linkedin.com/in/ishak-ertem-054b5b139)
+### Follow me on LinkedIn: [@ertemishakk](https://linkedin.com/in/ishak-ertem-054b5b139)
 
 ### Checkout this article for detailed explanation: [React JS Wrapper for TikTok](https://medium.com/p/react-js-wrapper-for-tiktok-pixel-81aa4836ee0c)
 
-### Read about me : [ishakertem.com](ishakertem.com)
+### Read about me : [ishakertem.com](https://ishakertem.com)
