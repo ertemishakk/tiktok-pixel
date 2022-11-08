@@ -1,0 +1,3 @@
+interface DebugOptions {
+  debug?: boolean;
+}

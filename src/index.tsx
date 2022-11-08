@@ -1,34 +1,38 @@
 let debug = false;
 let initialized = false;
 
-const warn = (...args) => {
+const warn = (...args: any) => {
   if (!debug) {
     return;
   }
-  // eslint-disable-next-line no-console
   console.info(...['[tiktok-pixel]'].concat(args));
 };
 
 const verifyInit = () => {
   if (!initialized) {
     warn(
-      'Pixel not initialized before using call tiktokPixel.init with required params',
+      'Pixel not initialized before using call tiktokPixel.init with required params'
     );
   }
   return initialized;
 };
 
-const log = (...args) => {
+const log = (...args: any) => {
   if (!debug) {
     return;
   }
-  // eslint-disable-next-line no-console
   console.info(...['[tiktok-pixel]'].concat(args));
 };
 
-const loadLibrary = (w, d, t, pixelId, advancedMatching, options) => {
-  w.TiktokAnalyticsObject = t;
-  var ttq = (w[t] = w[t] || []);
+const loadLibrary = (
+  w: Window,
+  t: string,
+  pixelId: string,
+  advancedMatching: AdvancedMatching,
+  options: DebugOptions
+) => {
+  (w as any).TiktokAnalyticsObject = t;
+  var ttq = ((w as any)[t] = (w as any)[t] || []);
   ttq.methods = [
     'page',
     'track',
@@ -44,7 +48,7 @@ const loadLibrary = (w, d, t, pixelId, advancedMatching, options) => {
     'enableCookie',
     'disableCookie',
   ];
-  ttq.setAndDefer = function(t, e) {
+  ttq.setAndDefer = function(t: any, e: any) {
     t[e] = function() {
       t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
     };
@@ -52,12 +56,12 @@ const loadLibrary = (w, d, t, pixelId, advancedMatching, options) => {
 
   for (var i = 0; i < ttq.methods.length; i++)
     ttq.setAndDefer(ttq, ttq.methods[i]);
-  ttq.instance = function(t) {
+  ttq.instance = function(t: any) {
     for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)
       ttq.setAndDefer(e, ttq.methods[n]);
     return e;
   };
-  ttq.load = function(e, n) {
+  ttq.load = function(e: string, n: any) {
     var i = 'https://analytics.tiktok.com/i18n/pixel/events.js';
     ttq._i = ttq._i || {};
     ttq._i[e] = [];
@@ -71,7 +75,7 @@ const loadLibrary = (w, d, t, pixelId, advancedMatching, options) => {
     o.async = !0;
     o.src = i + '?sdkid=' + e + '&lib=' + t;
     var a = document.getElementsByTagName('script')[0];
-    a.parentNode.insertBefore(o, a);
+    a?.parentNode?.insertBefore(o, a);
   };
   if (!pixelId) {
     warn('Please insert pixel id for initializing');
@@ -80,7 +84,7 @@ const loadLibrary = (w, d, t, pixelId, advancedMatching, options) => {
     ttq.identify(advancedMatching);
     ttq.page();
     initialized = true;
-    debug = options.debug;
+    debug = options.debug!;
   }
 };
 
@@ -89,10 +93,10 @@ const defaultOptions = {
 };
 
 const TiktokPixel = {
-  async init(pixelId, advancedMatching = {}, options = defaultOptions) {
-    initialized = typeof window !== 'undefined' && !!window.ttq;
+  async init(pixelId: string, advancedMatching = {}, options = defaultOptions) {
+    initialized = typeof window !== 'undefined' && !!(window as any).ttq;
     if (!initialized) {
-      loadLibrary(window, document, 'ttq', pixelId, advancedMatching, options);
+      loadLibrary(window, 'ttq', pixelId, advancedMatching, options);
     }
   },
   pageView() {
@@ -100,7 +104,7 @@ const TiktokPixel = {
     ttq.page();
   },
 
-  track(event, data, options = {}) {
+  track(event: TiktokEvent, data: TiktokParams, options: DebugOptions = {}) {
     if (!verifyInit()) {
       return;
     }
@@ -124,7 +128,7 @@ const TiktokPixel = {
 };
 
 const getLibrary = () => {
-  return window.ttq;
+  return (window as any).ttq;
 };
 
 export default TiktokPixel;

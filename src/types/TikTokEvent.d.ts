@@ -1,0 +1,15 @@
+type TiktokEvent =
+  | 'AddPaymentInfo'
+  | 'AddToCart'
+  | 'AddToWishlist'
+  | 'ClickButton'
+  | 'CompletePayment'
+  | 'CompleteRegistration'
+  | 'Contact'
+  | 'Download'
+  | 'InitiateCheckout'
+  | 'PlaceAnOrder'
+  | 'Search'
+  | 'SubmitForm'
+  | 'Subscribe'
+  | 'ViewContent';
