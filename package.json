@@ -1,5 +1,5 @@
 {
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -39,6 +39,11 @@
     "name": "Ishak Ertem",
     "email": "ertemishakk@gmail.com"
   },
+  "keywords": [
+    "tiktok",
+    "tiktok-pixel",
+    "react-tiktok-pixel"
+  ],
   "description": "Tiktok Pixel Kit for React",
   "module": "dist/tiktok-pixel.esm.js",
   "size-limit": [
