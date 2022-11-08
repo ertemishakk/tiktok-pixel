@@ -88,3 +88,9 @@ yarn start
 | query                  | The text string that was input by a user. For instance, if a person searches for a product on your website, you can forward the keyword being searched. If a person enters a coupon code at check out, you can forward the code.                                                                                                                                                | string                                                                                                                                             |
 | description            | Description of the item or page.                                                                                                                                                                                                                                                                                                                                                | string                                                                                                                                             |
 | status                 | Status of an order, item, or service. Note: Depending on your use of 'status', Events API may be required in order to share status changes to TikTok.                                                                                                                                                                                                                           | string                                                                                                                                             |
+
+### Follow me on LinkedIn: [@ertemishakk](linkedin.com/in/ishak-ertem-054b5b139)
+
+### Checkout this article for detailed explanation: [React JS Wrapper for TikTok](https://medium.com/p/react-js-wrapper-for-tiktok-pixel-81aa4836ee0c)
+
+### Read about me : [ishakertem.com](ishakertem.com)
