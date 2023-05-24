@@ -99,7 +99,12 @@ const TiktokPixel = {
       loadLibrary(window, 'ttq', pixelId, advancedMatching, options);
     }
   },
+  
   pageView() {
+    if (!verifyInit()) {
+      return;
+    }
+
     const ttq = getLibrary();
     ttq.page();
   },
